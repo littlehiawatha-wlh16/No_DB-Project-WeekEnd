@@ -1,26 +1,80 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Header from './Components/Header'
+import Input  from './Components/Input'
 
-function App() {
+
+import axios from 'axios';
+
+class App extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      todoList: []
+    }
+  }
+
+// // these are all calls
+
+  componentDidMount(){
+    axios.get('/api/todo').then(res => {
+      this.setState({
+        todoList: res.data
+      })
+    }).catch(err => console.log(err))
+
+  }
+
+
+  addTodoItem = (input) => {
+    axios.post('/api/todo', {input} ).then(res => {
+      this.setState({
+        todoList: res.data
+      })
+    }).catch(err => console.log(err))
+  }
+
+
+  // editTodoItem = () => {
+  //   axios.put(`/api/todo/${id}`, {todoItem}).then(res => {
+  //     this.setState({
+  //       todoList: res.data
+  //     })
+  //   }).catch(err => console.log(err))
+  // }
+
+
+  // deleteTodoItem = () => {
+  //   axios.delete(`/api/todo/${id}`).then(res => {
+  //     this.setState({
+  //       todoList: res.data
+  //     })
+  //   }).catch(err => console.log(err))
+  // }
+
+
+
+
+
+
+
+  render () {
+    const {todoList} = this.state
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Input 
+            todoList = {todoList} 
+            addTodoItem = {this.addTodoItem}
+            />
     </div>
   );
+
+  }
+
+
 }
 
 export default App;

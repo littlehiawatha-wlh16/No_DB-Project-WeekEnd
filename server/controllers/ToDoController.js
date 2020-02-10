@@ -1,4 +1,4 @@
-let todoList = [{id: 1, lineItem: 'laundry'}, {id:2, lineItem: 'pick up toast'}, {id: 3, lineItem: 'hunt a squirrel'}]
+let todoList = [{id: 1, lineItem: 'laundry'}, {id:2, lineItem: 'pick up toast'}, {id: 3, lineItem: 'skin a squirrel'}]
 let id = 4  // we will commit to add 3 pieces of dummy data
 
 module.exports = {
@@ -9,12 +9,13 @@ getTodoList: (req, res) => {
 
 
 addTodoList: (req, res) => {
-   const {todoItem} = req.body
+                                                          console.log(req.body)
+   const {input} = req.body
    todoList.id = id
    id++
 
-   todoList.unshift(todoitem)
-
+   todoList.unshift(input)
+                                                         console.log(todoList)
    res.status(200).send(todoList)
 },
 
