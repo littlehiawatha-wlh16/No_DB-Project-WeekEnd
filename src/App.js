@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './Components/Header'
 import Input  from './Components/Input'
+import CompletedItems from './Components/CompletedItems'
 
 
 import axios from 'axios';
@@ -69,7 +70,9 @@ class App extends Component {
             todoList = {todoList} 
             addTodoItem = {this.addTodoItem}
             deleteTodoItem = {this.deleteTodoItem}
+            editTodoItem = {this.editTodoItem}
             />
+      <CompletedItems />
     </div>
   );
 

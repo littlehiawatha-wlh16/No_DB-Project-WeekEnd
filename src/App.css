@@ -1,18 +1,30 @@
 .App {
   text-align: center;
+  background-image: url(https://cdn.shopify.com/s/files/1/2802/1886/products/Lined_Pages-1_1200x.png?v=1565860815);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Header {
+  background-color: grey;
+  height: 50px;
+  opacity: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.CompletedItems {
+  background-color: green;
+  height: 50px;
+  opacity: 100%;
 }
 
+.editAndDelete{
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+
+/* 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,17 +34,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+} */

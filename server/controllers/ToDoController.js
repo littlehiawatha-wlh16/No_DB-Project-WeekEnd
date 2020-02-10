@@ -1,5 +1,8 @@
-let todoList = [{id: 1, lineItem: 'laundry'}, {id:2, lineItem: 'pick up toast'}, {id: 3, lineItem: 'skin a squirrel'}]
-let id = 4  // we will commit to add 3 pieces of dummy data
+// let todoList = [{id: 1, lineItem: 'Make the Bed'}, {id:2, lineItem: 'Brush Your Teeth'}, {id: 3, lineItem: 'Take a Shower'}]
+// let id = 4  // we will commit to add 3 pieces of dummy data
+
+let todoList = []
+let id = 0 
 
 module.exports = {
 

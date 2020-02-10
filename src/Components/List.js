@@ -5,17 +5,17 @@ function List(props) {
 
   let mapList = props.todoList.map((e,i) => {
       return (
-         <div key={i}>
+         <div key={i} className = "editAndDelete" >
             <button onClick = {() => props.deleteTodoItem(e.id)}>Completed</button>
                {
                props.toggleEdit === true ?
-               <div>
-
+               <div >
+                     
                   <button onClick = {() => props.editUpdateItem(e.id)}>Save Update</button>
                   <input onChange = { (e) => props.handleEdit(e.target.value)}/>
                </div>
             :
-            <div>      
+            <div className = "editAndDelete">      
             <button onClick = {() => props.handleEditToggle() }>Edit</button>
             <h2>  {e.lineItem}  </h2>
             </div>

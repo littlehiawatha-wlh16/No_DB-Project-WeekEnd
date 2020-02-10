@@ -13,32 +13,34 @@ class Input extends Component{
       }      
    }
 
-   handleEditToggle(){
+   handleEditToggle = () => { 
 
-      console.log(this.state.toggleEdit)
+      console.log(this) 
 
       this.setState({toggleEdit: !this.state.toggleEdit})
    }
 
-   editUpdateItem(id){
+                                                                                               // learn to bind sometime soon
+
+   editUpdateItem = (id) => {
       this.props.editTodoItem(id, this.state.edit)
       this.setState({toggleEdit: !this.state.toggleEdit})
    }
 
-   handleEdit(event){
+   handleEdit = (event) => {
       this.setState({edit: event})
    }
 
    //handlechange ... how button reacts
 
-   handleButton(){
+   handleButton = () => {
       this.props.addTodoItem(this.state.input)
    }
 
 
    //handleInput... how input reacts
 
-   handleInput(event){
+   handleInput = (event) =>{
       this.setState({input: event})
    }
 
@@ -56,6 +58,7 @@ class Input extends Component{
                   toggleEdit = {this.state.toggleEdit}
                   editUpdateItem = {this.editUpdateItem}
                   edit = {this.state.edit}
+                  handleEdit ={this.handleEdit}
                   /> 
          </div>
       )
