@@ -12,7 +12,7 @@ function List(props) {
                <div >
                      
                   <button onClick = {() => props.editUpdateItem(e.id)}>Save Update</button>
-                  <input onChange = { (e) => props.handleEdit(e.target.value)}/>
+                  <input placeholder={e.lineItem} onChange = { (e) => props.handleEdit(e.target.value)}/>
                </div>
             :
             <div className = "editAndDelete">      
