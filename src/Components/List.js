@@ -5,7 +5,7 @@ function List(props) {
 
   let mapList = props.todoList.map((e,i) => {
       return (
-         <div key={i} className = "editAndDelete" >
+         <section key={i} className = "editAndDelete" >
             <button onClick = {() => props.deleteTodoItem(e.id)}>Completed</button>
                {
                props.toggleEdit === true ?
@@ -20,7 +20,7 @@ function List(props) {
             <h2>  {e.lineItem}  </h2>
             </div>
          }
-         </div>
+         </section>
          )
    })
 

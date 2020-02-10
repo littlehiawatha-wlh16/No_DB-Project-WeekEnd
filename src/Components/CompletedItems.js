@@ -19,12 +19,12 @@ class CompletedItems extends Component{
       } )
 
       return(
-         <div className="CompletedItems">
+         <section className="CompletedItems">
 
             <h1>Items Completed!</h1>            
-            {completedList}
+            <strike>{completedList}</strike>
 
-         </div>
+         </section>
       )
    }
 }
