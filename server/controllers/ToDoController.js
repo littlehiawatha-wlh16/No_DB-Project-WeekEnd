@@ -2,7 +2,10 @@
 // let id = 4  // we will commit to add 3 pieces of dummy data
 
 let todoList = []
-let id = 0 
+let itemsCompletedSaved = []
+let id = 0
+
+
 
 module.exports = {
 
@@ -45,9 +48,11 @@ deleteTodoItem: (req, res) => {
       return e.id === +id
    })
 
+   itemsCompletedSaved.push(todoList[index])
+
    todoList.splice(index, 1)
 
-   res.status(200).send(todoList)
+   res.status(200).send([todoList, itemsCompletedSaved])
 
 }
 

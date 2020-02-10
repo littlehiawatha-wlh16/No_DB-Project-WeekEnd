@@ -48,8 +48,9 @@ class App extends Component {
 
   deleteTodoItem = (id) => {
     axios.delete(`/api/todo/${id}`).then(res => {
+      console.log(res.data)
       this.setState({
-        todoList: res.data
+        todoList: res.data[0]
       })
     }).catch(err => console.log(err))
   }
