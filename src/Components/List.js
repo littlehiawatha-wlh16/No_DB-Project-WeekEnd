@@ -6,7 +6,20 @@ function List(props) {
   let mapList = props.todoList.map((e,i) => {
       return (
          <div key={i}>
+            <button onClick = {() => props.deleteTodoItem(e.id)}>Completed</button>
+               {
+               props.toggleEdit === true ?
+               <div>
+
+                  <button onClick = {() => props.editUpdateItem(e.id)}>Save Update</button>
+                  <input onChange = { (e) => props.handleEdit(e.target.value)}/>
+               </div>
+            :
+            <div>      
+            <button onClick = {() => props.handleEditToggle() }>Edit</button>
             <h2>  {e.lineItem}  </h2>
+            </div>
+         }
          </div>
          )
    })

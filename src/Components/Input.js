@@ -7,8 +7,26 @@ class Input extends Component{
       super(props)
 
       this.state = {
-         input: ""
+         input: "",
+         toggleEdit: false,
+         edit: ""
       }      
+   }
+
+   handleEditToggle(){
+
+      console.log(this.state.toggleEdit)
+
+      this.setState({toggleEdit: !this.state.toggleEdit})
+   }
+
+   editUpdateItem(id){
+      this.props.editTodoItem(id, this.state.edit)
+      this.setState({toggleEdit: !this.state.toggleEdit})
+   }
+
+   handleEdit(event){
+      this.setState({edit: event})
    }
 
    //handlechange ... how button reacts
@@ -32,7 +50,13 @@ class Input extends Component{
             <button onClick = {() => this.handleButton()}>Save Item</button>
             <input onChange = {(e) => this.handleInput(e.target.value)}></input>
             <List 
-                  todoList = {this.props.todoList}/> 
+                  todoList = {this.props.todoList}
+                  deleteTodoItem = {this.props.deleteTodoItem}
+                  handleEditToggle = {this.handleEditToggle}
+                  toggleEdit = {this.state.toggleEdit}
+                  editUpdateItem = {this.editUpdateItem}
+                  edit = {this.state.edit}
+                  /> 
          </div>
       )
    }

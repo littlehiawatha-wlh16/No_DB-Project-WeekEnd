@@ -11,10 +11,12 @@ getTodoList: (req, res) => {
 addTodoList: (req, res) => {
                                                           console.log(req.body)
    const {input} = req.body
-   todoList.id = id
+   const savedItem = {id: id,
+                     lineItem: input
+                     }
    id++
 
-   todoList.unshift(input)
+   todoList.unshift(savedItem)
                                                          console.log(todoList)
    res.status(200).send(todoList)
 },

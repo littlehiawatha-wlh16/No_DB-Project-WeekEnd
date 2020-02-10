@@ -36,22 +36,22 @@ class App extends Component {
   }
 
 
-  // editTodoItem = () => {
-  //   axios.put(`/api/todo/${id}`, {todoItem}).then(res => {
-  //     this.setState({
-  //       todoList: res.data
-  //     })
-  //   }).catch(err => console.log(err))
-  // }
+  editTodoItem = (id, todoItem) => {
+    axios.put(`/api/todo/${id}`, {todoItem}).then(res => {
+      this.setState({
+        todoList: res.data
+      })
+    }).catch(err => console.log(err))
+  }
 
 
-  // deleteTodoItem = () => {
-  //   axios.delete(`/api/todo/${id}`).then(res => {
-  //     this.setState({
-  //       todoList: res.data
-  //     })
-  //   }).catch(err => console.log(err))
-  // }
+  deleteTodoItem = (id) => {
+    axios.delete(`/api/todo/${id}`).then(res => {
+      this.setState({
+        todoList: res.data
+      })
+    }).catch(err => console.log(err))
+  }
 
 
 
@@ -68,6 +68,7 @@ class App extends Component {
       <Input 
             todoList = {todoList} 
             addTodoItem = {this.addTodoItem}
+            deleteTodoItem = {this.deleteTodoItem}
             />
     </div>
   );
