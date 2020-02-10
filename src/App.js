@@ -12,7 +12,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      todoList: []
+      todoList: [],
+      itemsCompletedSaved: []
     }
   }
 
@@ -50,7 +51,8 @@ class App extends Component {
     axios.delete(`/api/todo/${id}`).then(res => {
       console.log(res.data)
       this.setState({
-        todoList: res.data[0]
+        todoList: res.data[0],
+        itemsCompletedSaved: res.data[1]
       })
     }).catch(err => console.log(err))
   }
@@ -62,7 +64,7 @@ class App extends Component {
 
 
   render () {
-    const {todoList} = this.state
+    const {todoList, itemsCompletedSaved} = this.state
 
   return (
     <div className="App">
@@ -73,7 +75,10 @@ class App extends Component {
             deleteTodoItem = {this.deleteTodoItem}
             editTodoItem = {this.editTodoItem}
             />
-      <CompletedItems />
+      <CompletedItems
+                      itemsCompletedSaved = {itemsCompletedSaved}
+      />
+      
     </div>
   );
 

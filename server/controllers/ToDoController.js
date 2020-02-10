@@ -48,7 +48,7 @@ deleteTodoItem: (req, res) => {
       return e.id === +id
    })
 
-   itemsCompletedSaved.push(todoList[index])
+   itemsCompletedSaved.unshift(todoList[index])
 
    todoList.splice(index, 1)
 
